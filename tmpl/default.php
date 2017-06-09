@@ -2,6 +2,7 @@
 defined('_JEXEC') or die('Restricted access');
 DEFINE('MOD_SS_ASSETS',JURI::base(true) . "/modules/".$module->module."/assets/");
 jimport('joomla.filesystem.file');
+
 //Get the configuration options
 $source                = $params->get("source",1);
 $slides_show           = $params->get("slides_show",1);
@@ -16,6 +17,8 @@ $config_draggable      = $params->get("config_draggable",'true');
 $config_fade           = $params->get("config_fade",'false');
 $config_variablewidth  = $params->get("config_variablewidth",'false');
 $target_link           = $params->get("target_link",1);
+$add_css			   = $params->get("add_css","true");
+
 // Get the plugin information
 $source_plugin = $params->get("source_plugin",1);
 ( $source_plugin == 2 ) ? $source_plugin_js = $params->get("source_plugin_js") : $source_plugin_js = MOD_SS_ASSETS."js/slick.js";
@@ -27,6 +30,10 @@ $document->addStylesheet($source_plugin_css);
 $document->addStylesheet($source_plugin_theme);
 $document->addScript($source_plugin_js);
 
+if ( $add_css == "true" ){
+	$document->addStylesheet( MOD_SS_ASSETS."css/custom_style.css" );	
+}
+
 
 // Get the advanced information
 $className          = $params->get("className");
@@ -34,7 +41,7 @@ $idName             = $params->get("idName",$module->id);
 $show_title_item    = $params->get("show_title_item",false);
 $show_readmore_item = $params->get("show_readmore_item",false);
 ?>
-<div class="container-slider id-<?php echo $module->id;?> <?php echo $className;?>" id="<?php echo $idName;?>">
+<div class="container-slider-slick id-<?php echo $module->id;?> <?php echo $className;?>" id="<?php echo $idName;?>">
 		
 	<?php if ( count( $items ) ): ?>		
 
@@ -105,34 +112,35 @@ $show_readmore_item = $params->get("show_readmore_item",false);
 		<?php if ($imagen!="" && JFile::exists( $imagen) ): ?>
 			<div class="item">
 		
-				<?php if ( $urlItem ): ?>
-				<a href="<?php echo $urlItem; ?>" <?php if ($target_link == 2) { echo 'target="_blank"'; } ?>>
-				<?php elseif ($linkType == "popup"): ?>
-				<a href="<?php echo JURI::BASE(). $imagen; ?>" class="image-link popup">
-				<?php endif; ?>
+				<div class="item-slide-container">
+					<?php if ( $urlItem ): ?>
+					<a href="<?php echo $urlItem; ?>" <?php if ($target_link == 2) { echo 'target="_blank"'; } ?>>
+					<?php elseif ($linkType == "popup"): ?>
+					<a href="<?php echo JURI::BASE(). $imagen; ?>" class="image-link popup">
+					<?php endif; ?>
 
-				<div class="item-slide-image">					
-				<img src="<?php echo JURI::BASE(). $imagen; ?>">
-				</div>
+					<div class="item-slide-image">					
+					<img src="<?php echo JURI::BASE(). $imagen; ?>">
+					</div>
 
-				<?php if ( $urlItem != "" || $linkType == "popup"): ?>
-				</a>
-				<?php endif ?>
-				
-				<?php if ( $show_title_item == 1 ): ?>
-				<div class="item-slide-title">
-					<?php echo $item->title; ?>
-				</div>
-				<?php endif; ?>
-
-				<?php if ( $show_readmore_item == 1 ): ?>
-				<div class="item-slide-readmore">
-					<a href="<?php echo $urlItem; ?>" class="btn btn-default" <?php if ($target_link == 2) { echo 'target="_blank"'; } ?>>
-					<?php echo JTEXT::_("MOD_SLIDERSLICK_READMORE"); ?>
+					<?php if ( $urlItem != "" || $linkType == "popup"): ?>
 					</a>
+					<?php endif ?>
+					
+					<?php if ( $show_title_item == 1 ): ?>
+					<div class="item-slide-title">
+						<?php echo $item->title; ?>
+					</div>
+					<?php endif; ?>
+
+					<?php if ( $show_readmore_item == 1 && $source_content_link == 2 ): ?>
+					<div class="item-slide-readmore">
+						<a href="<?php echo $urlItem; ?>" class="btn btn-default" <?php if ($target_link == 2) { echo 'target="_blank"'; } ?>>
+						<?php echo JTEXT::_("MOD_SLIDERSLICK_READMORE"); ?>
+						</a>
+					</div>
+					<?php endif; ?>
 				</div>
-				<?php endif; ?>
-				
 			</div>
 		<?php endif ?>
 		<?php endforeach ?>
