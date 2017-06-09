@@ -12,5 +12,5 @@ Subir archivo del paquete
 Puedes seleccionar la pestaña Subir archivo del paquete y arrastrar el archivo .zip.
 
 Instalar desde URL
-Copia el siguiente link en Instalar desde URL
-https://github.com/javimata/mod_sliderslick/raw/master/mod_sliderslick.zip
+Copia el siguiente link en Instalar desde URL:
+[pre]https://github.com/javimata/mod_sliderslick/raw/master/mod_sliderslick.zip[/pre]
