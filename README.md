@@ -5,7 +5,7 @@ Modulo de slider basado en la libreria Slick, para más información de esta vis
 
 http://kenwheeler.github.io/slick/
 
-#Modo de instalación
+# Modo de instalación
 Descarga el archivo mod_sliderslick.zip e instalalo directamente en Joomla ingresando a: Extensiones > Gestionar > Instalar
 
 Subir archivo del paquete
