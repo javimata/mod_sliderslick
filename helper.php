@@ -22,8 +22,8 @@ class modItems
     	 * 1 = Content ( items default de Joomla )
     	 * 2 = Banners ( Componente de banners nativo de Joomla )
     	 * 3 = Folder ( Obtiene las imagenes desde un folder especifico )
-    	 * 4 = K2 ( Contenido desde componente K2 )
 		*/
+
         $source       = $params->get("source",1);
         $sortby       = $params->get("sortby",'title ASC');
         $sortbyb      = $params->get("sortbyb",'name ASC');
@@ -74,26 +74,6 @@ class modItems
                 $items = array_slice($items,0,$slides_limit);
 
             }
-
-            // echo $dir;
-            // print_r($items);
-
-        } else {
-
-            /*
-
-                $folder_image  = $params->get("source_folder");
-                $folder_custom = $params->get("source_folder_custom");
-
-                ( $folder_custom != "" ) ? $folder = $folder_custom : $folder = "/images/" . $folder_image;
-
-                $dir = getcwd() . $folder;
-                $imagenes = glob("$dir/*.{jpg,png,gif,bmp}", GLOB_BRACE);
-
-                echo $folder;
-                print_r($imagenes);
-
-            */
 
         }
 
