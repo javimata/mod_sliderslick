@@ -7,7 +7,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>javimata@gmail.com</authorEmail>
 	<authorUrl>www.javimata.com</authorUrl>
-	<version>1.0.2</version>
+	<version>1.0.1</version>
 	<description>MOD_SLIDERSLICK_XML_DESCRIPTION</description>
 
     <updateservers>
@@ -72,7 +72,7 @@
 					<option value="2">MOD_SLIDERSLICK_SOURCE_FOLDER_LINK_OPTION2</option>
 				</field>
 
-				<field name="target_link" type="list" label="MOD_SLIDERSLICK_SOURCE_TARGET_LINK_LABEL" description="MOD_SLIDERSLICK_SOURCE_TARGET_LINK_DESC" default="1">
+				<field name="target_link" type="list" label="MOD_SLIDERSLICK_SOURCE_TARGET_LINK_LABEL" description="MOD_SLIDERSLICK_SOURCE_TARGET_LINK_DESC" default="1" showon="source:1[OR]source:2">
 					<option value="1">MOD_SLIDERSLICK_SOURCE_TARGET_LINK_OPTION1</option>
 					<option value="2">MOD_SLIDERSLICK_SOURCE_TARGET_LINK_OPTION2</option>
 				</field>
@@ -81,7 +81,7 @@
 
 				<field name="source_banners_category" type="category" extension="com_banners" label="MOD_SLIDERSLICK_SOURCE_BANNERS_CATEGORY_LABEL" description="MOD_SLIDERSLICK_SOURCE_BANNERS_CATEGORY_DESC" showon="source:2" />
 
-				<field name="sortby" type="list" label="MOD_SLIDERSLICK_ORDER_BY_LABEL" description="MOD_SLIDERSLICK_ORDER_BY_DESC" default="title ASC" showon="source:1,3">
+				<field name="sortby" type="list" label="MOD_SLIDERSLICK_ORDER_BY_LABEL" description="MOD_SLIDERSLICK_ORDER_BY_DESC" default="title ASC" showon="source:1">
 					<option value="title ASC">MOD_SLIDERSLICK_ORDER_BY_OPTION1</option>
 					<option value="title DESC">MOD_SLIDERSLICK_ORDER_BY_OPTION2</option>
 					<option value="ordering ASC">MOD_SLIDERSLICK_ORDER_BY_OPTION3</option>
@@ -98,8 +98,6 @@
 					<option value="ordering DESC">MOD_SLIDERSLICK_ORDER_BY_OPTION4</option>
 					<option value="rand()">MOD_SLIDERSLICK_ORDER_BY_OPTION5</option>
 				</field>
-
-				<field name="note_sort" type="note" class="alert" label="MOD_SLIDERSLICK_ORDER_BY_NOTE_LABEL" description="MOD_SLIDERSLICK_ORDER_BY_NOTE_DESC" />
 
 				<field type="spacer" name="spacer-basic" label="" />
 

@@ -69,6 +69,12 @@ class modItems
             $dir = getcwd() . $folder;
             $items = glob("$dir/*.{jpg,png,gif,bmp}", GLOB_BRACE);
 
+            if ( $slides_limit > 0 ) {
+
+                $items = array_slice($items,0,$slides_limit);
+
+            }
+
             // echo $dir;
             // print_r($items);
 
