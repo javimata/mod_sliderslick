@@ -67,6 +67,11 @@
 					<option value="3">MOD_SLIDERSLICK_SOURCE_BANNERS_LINK_OPTION3</option>
 				</field>
 
+				<field name="source_folder_link" type="list" label="MOD_SLIDERSLICK_SOURCE_FOLDER_LINK_LABEL" description="MOD_SLIDERSLICK_SOURCE_FOLDER_LINK_DESC" default="1" showon="source:3">
+					<option value="1">MOD_SLIDERSLICK_SOURCE_FOLDER_LINK_OPTION1</option>
+					<option value="2">MOD_SLIDERSLICK_SOURCE_FOLDER_LINK_OPTION2</option>
+				</field>
+
 				<field name="target_link" type="list" label="MOD_SLIDERSLICK_SOURCE_TARGET_LINK_LABEL" description="MOD_SLIDERSLICK_SOURCE_TARGET_LINK_DESC" default="1">
 					<option value="1">MOD_SLIDERSLICK_SOURCE_TARGET_LINK_OPTION1</option>
 					<option value="2">MOD_SLIDERSLICK_SOURCE_TARGET_LINK_OPTION2</option>

@@ -45,7 +45,6 @@ class modItems
             $items = $db->loadObjectList();
 
         } elseif( $source == 2 ) {
-            // Source 2 - Banners
 
             $category = $params->get("source_banners_category");
 

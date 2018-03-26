@@ -107,9 +107,13 @@ $show_readmore_item = $params->get("show_readmore_item",false);
 
 					$dir = getcwd();
 					$imagen = str_replace($dir."/","",$item);
-					$linkType = "popup";
-					// print_r($items);
-					# code...
+					$source_folder_link = $params->get("source_folder_link",1);
+
+		            if ( $source_folder_link == 2 ):
+
+			        	$linkType = "popup";
+
+		            endif;
 					break;
 
 			}
