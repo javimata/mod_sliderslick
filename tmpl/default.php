@@ -2,6 +2,7 @@
 defined('_JEXEC') or die('Restricted access');
 DEFINE('MOD_SS_ASSETS',JURI::base(true) . "/modules/".$module->module."/assets/");
 jimport('joomla.filesystem.file');
+JHtml::_('bootstrap.framework');
 
 //Get the configuration options
 $source                = $params->get("source",1);
