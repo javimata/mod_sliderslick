@@ -2,12 +2,12 @@
 <extension type="module" version="3.1.0" client="site" method="upgrade">
 	<name>MOD_SLIDERSLICK</name>
 	<author>@Javi_Mata</author>
-	<creationDate>November 2017</creationDate>
-	<copyright>Copyright (C) 2017 - All rights reserved.</copyright>
+	<creationDate>July 2018</creationDate>
+	<copyright>Copyright (C) 2018 - All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>javimata@gmail.com</authorEmail>
 	<authorUrl>www.javimata.com</authorUrl>
-	<version>1.0.1</version>
+	<version>1.0.2 Beta</version>
 	<description>MOD_SLIDERSLICK_XML_DESCRIPTION</description>
 
     <updateservers>
@@ -33,6 +33,8 @@
 		<fields name="params">
 			<fieldset name="basic">
 
+				<field name="limit_id" type="text" default="" label="MOD_SLIDERSLICK_LIMIT_ARTICLE_LABEL" description="MOD_SLIDERSLICK_LIMIT_ARTICLE_DESC" filter="integer" />
+
 				<field name="slides_show" type="text" default="1" label="MOD_SLIDERSLICK_SHOW_LABEL" description="MOD_SLIDERSLICK_SHOW_DESC" filter="integer" />
 				<field name="slides_limit" type="text" default="0" label="MOD_SLIDERSLICK_LIMIT_LABEL" description="MOD_SLIDERSLICK_LIMIT_DESC" filter="integer" />
 
@@ -42,12 +44,11 @@
 					<option value="3">MOD_SLIDERSLICK_SOURCE_TYPE3</option>
 				</field>
 
-
 				<field name="source_folder" type="folderlist" default="MOD_SLIDERSLICK_SOURCE_FOLDER_DESC" label="MOD_SLIDERSLICK_SOURCE_FOLDER_LABEL" directory="images" filter="" exclude="" stripext="" showon="source:3" />
 
 				<field name="source_folder_custom" type="text" label="MOD_SLIDERSLICK_SOURCE_FOLDER_CUSTOM_LABEL" description="MOD_SLIDERSLICK_SOURCE_FOLDER_CUSTOM_DESC" showon="source:3" />
 				
-				<field name="source_content_image" type="list" label="MOD_SLIDERSLICK_SOURCE_CONTENT_IMAGE_LABEL" description="MOD_SLIDERSLICK_SOURCE_CONTENT_IMAGE__DESC" default="1" showon="source:1">
+				<field name="source_content_image" type="list" label="MOD_SLIDERSLICK_SOURCE_CONTENT_IMAGE_LABEL" description="MOD_SLIDERSLICK_SOURCE_CONTENT_IMAGE_DESC" default="1" showon="source:1">
 				  <option value="1">MOD_SLIDERSLICK_SOURCE_CONTENT_IMAGE_SOURCE1</option>
 				  <option value="2">MOD_SLIDERSLICK_SOURCE_CONTENT_IMAGE_SOURCE2</option>
 				</field>
@@ -76,7 +77,7 @@
 
 				<field name="source_banners_category" type="category" extension="com_banners" label="MOD_SLIDERSLICK_SOURCE_BANNERS_CATEGORY_LABEL" description="MOD_SLIDERSLICK_SOURCE_BANNERS_CATEGORY_DESC" showon="source:2" />
 
-				<field name="sortby" type="list" label="MOD_SLIDERSLICK_ORDER_BY_LABEL" description="MOD_SLIDERSLICK_ORDER_BY_DESC" default="title ASC" showon="source:1,3">
+				<field name="sortby" type="list" label="MOD_SLIDERSLICK_ORDER_BY_LABEL" description="MOD_SLIDERSLICK_ORDER_BY_DESC" default="title ASC" showon="source:1">
 					<option value="title ASC">MOD_SLIDERSLICK_ORDER_BY_OPTION1</option>
 					<option value="title DESC">MOD_SLIDERSLICK_ORDER_BY_OPTION2</option>
 					<option value="ordering ASC">MOD_SLIDERSLICK_ORDER_BY_OPTION3</option>
@@ -92,6 +93,12 @@
 					<option value="ordering ASC">MOD_SLIDERSLICK_ORDER_BY_OPTION3</option>
 					<option value="ordering DESC">MOD_SLIDERSLICK_ORDER_BY_OPTION4</option>
 					<option value="rand()">MOD_SLIDERSLICK_ORDER_BY_OPTION5</option>
+				</field>
+
+				<field name="sortbyi" type="list" label="MOD_SLIDERSLICK_ORDER_BY_LABEL" description="MOD_SLIDERSLICK_ORDER_BY_DESC" default="title ASC" showon="source:3">
+					<option value="name_ASC">MOD_SLIDERSLICK_ORDER_BY_OPTION1</option>
+					<option value="name_DESC">MOD_SLIDERSLICK_ORDER_BY_OPTION2</option>
+					<option value="random">MOD_SLIDERSLICK_ORDER_BY_OPTION7</option>
 				</field>
 
 				<field name="note_sort" type="note" class="alert" label="MOD_SLIDERSLICK_ORDER_BY_NOTE_LABEL" description="MOD_SLIDERSLICK_ORDER_BY_NOTE_DESC" />

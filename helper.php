@@ -2,11 +2,11 @@
 /**
  * Helper class for slider slick! module
  * 
- * @package    Joomla.Tutorials
+ * @package    Joomla.SliderSlick
  * @subpackage Modules
  * @link http://www.javimata.com
  * @license        GNU/GPL, see LICENSE.php
- * mod_helloworld is free software. This version may have been modified pursuant
+ * mod_sliderslick is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
  * is derivative of works licensed under the GNU General Public License or
  * other free or open source software licenses.
@@ -22,11 +22,12 @@ class modItems
     	 * 1 = Content ( items default de Joomla )
     	 * 2 = Banners ( Componente de banners nativo de Joomla )
     	 * 3 = Folder ( Obtiene las imagenes desde un folder especifico )
-    	 * 4 = K2 ( Contenido desde componente K2 )
+    	 * 4 = K2 ( Contenido desde componente K2 ) -- DISABLE
 		*/
         $source       = $params->get("source",1);
         $sortby       = $params->get("sortby",'title ASC');
         $sortbyb      = $params->get("sortbyb",'name ASC');
+        $sortbyi      = $params->get("sortbyi",'name ASC');
         $slides_limit = $params->get("slides_limit",0);
         
         if ( $source == 1 ){
@@ -51,7 +52,7 @@ class modItems
             ( $slides_limit > 0 ) ? $whereLimit = " LIMIT " . $slides_limit : $whereLimit = "";
 
             $where      = ' catid = ' . $category;
-            $whereOrder = $sortbyb ;
+            $whereOrder = $sortbyb;
 
             $db    = JFactory::getDBO();
             $query = 'SELECT *,name AS title FROM #__banners WHERE ' . $where . ' AND state=1 ORDER BY ' . $whereOrder . $whereLimit;
@@ -68,6 +69,26 @@ class modItems
 
             $dir = getcwd() . $folder;
             $items = glob("$dir/*.{jpg,png,gif,bmp}", GLOB_BRACE);
+
+            switch ($sortbyi) {
+                case 'name_DESC':
+                    rsort($items);
+                    break;
+
+                case 'random':
+                    shuffle($items);
+                    break;
+                    
+                default:
+                    // sort($items);
+                    break;
+            }
+
+            if ( $slides_limit != "" && (int)$slides_limit <= count($items) ) {
+
+                $items = array_slice($items,0,(int)$slides_limit);
+
+            }
 
             // echo $dir;
             // print_r($items);
