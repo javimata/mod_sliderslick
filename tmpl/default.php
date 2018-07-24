@@ -2,7 +2,6 @@
 defined('_JEXEC') or die('Restricted access');
 DEFINE('MOD_SS_ASSETS',JURI::base(true) . "/modules/".$module->module."/assets/");
 jimport('joomla.filesystem.file');
-JHtml::_('bootstrap.framework');
 
 //Get the configuration options
 $source                = $params->get("source",1);
@@ -108,13 +107,9 @@ $show_readmore_item = $params->get("show_readmore_item",false);
 
 					$dir = getcwd();
 					$imagen = str_replace($dir."/","",$item);
-					$source_folder_link = $params->get("source_folder_link",1);
-
-		            if ( $source_folder_link == 2 ):
-
-			        	$linkType = "popup";
-
-		            endif;
+					$linkType = "popup";
+					// print_r($items);
+					# code...
 					break;
 
 			}
