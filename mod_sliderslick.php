@@ -11,7 +11,6 @@ defined('_JEXEC') or die;
 
 require_once __DIR__ . '/helper.php';
 
-//$list = modEventos::getList($params);
 $items = modItems::getItems($params);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 

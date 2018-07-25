@@ -18,12 +18,13 @@ class modItems
     {
 
     	/*
-    	 * Obtiene el tipo de fuente para el slider
-    	 * 1 = Content ( items default de Joomla )
-    	 * 2 = Banners ( Componente de banners nativo de Joomla )
-    	 * 3 = Folder ( Obtiene las imagenes desde un folder especifico )
-    	 * 4 = K2 ( Contenido desde componente K2 ) -- DISABLE
-		*/
+    	 * Get the source type for slider
+    	 * 1 = Content ( items default of Joomla )
+    	 * 2 = Banners ( Native Component Banners )
+    	 * 3 = Folder ( Get the images for a Folder )
+    	 * 4 = K2 ( Contenido desde componente K2 ) -- DISABLED
+        */
+        
         $source       = $params->get("source",1);
         $sortby       = $params->get("sortby",'title ASC');
         $sortbyb      = $params->get("sortbyb",'name ASC');
@@ -46,6 +47,7 @@ class modItems
             $items = $db->loadObjectList();
 
         } elseif( $source == 2 ) {
+            // Source Banners component
 
             $category = $params->get("source_banners_category");
 
@@ -60,7 +62,7 @@ class modItems
             $items = $db->loadObjectList();
 
         } elseif ( $source == 3 ){
-            // Fuente de carpeta
+            // Source Folder
 
             $folder_image  = $params->get("source_folder");
             $folder_custom = $params->get("source_folder_custom");
